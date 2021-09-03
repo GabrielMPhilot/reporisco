@@ -352,7 +352,7 @@ if st.checkbox('<-   (clique aqui 🖱️) '):
 
 
 """
-###  🧾 Exposição de todos os resultados métricas 
+###  🧾 Exposição dos resultados de classificação de risco 
 """
 opcao = st.radio("Escolha o tipo de vizualização dos resultados.",('Produto', 'Deal Owner','Grau de Risco','Todos os namespaces'))
 if opcao =="Produto":
@@ -381,7 +381,7 @@ Após checar os resultados, é uma boa pratica, caso tenha alguma dúvida ou que
 """
 
 """
-###  📊 Visualização de todas as métricas por **Namespace**
+###  📊 Visualização de todas as métricas por **namespace**
 """
 select2 = st.selectbox('',namespace_list, key='1')
 filtronamespace = split_dataframe(total_pontos,"namespace",select2)
@@ -389,6 +389,13 @@ contshow = df_set_plotly(get_columns(filtronamespace,t_conteudos))
 relashow = df_set_plotly(get_columns(filtronamespace,t_relas))
 questshow = df_set_plotly(get_columns(filtronamespace, t_quest))
 engjshow = df_set_plotly(get_columns(filtronamespace, t_engaj))
+namespace_risco=split_dataframe(produto_filtro,"namespace",select2)
+
+st.write('#### 📌 Informações sobre o namespace escolhido')
+
+st.table(namespace_risco)
+
+
 
 fig_cont11 =px.bar(contshow, x='Métricas', y='Valor',
                color='Namespace',barmode='group',

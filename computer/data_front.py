@@ -129,3 +129,4 @@ grauriscolist = tuple(produto_filtro["Risco"].drop_duplicates().values.tolist())
 namespace_list = tab_unida_prod["namespace"].tolist()
 
 
+
