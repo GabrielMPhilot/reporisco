@@ -356,7 +356,7 @@ if st.checkbox('<-   (clique aqui 🖱️) '):
 """
 opcao = st.radio("Escolha o tipo de vizualização dos resultados.",('Produto', 'Deal Owner','Grau de Risco','Todos os namespaces'))
 if opcao =="Produto":
-    opcao2 = st.radio("Escolha o tipo de Produto.",('Pedagógico', 'Diagnóstico','Escola+','Banco'))
+    opcao2 = st.radio("Escolha o tipo de Produto. ",('Pedagógico', 'Diagnóstico','Escola+','Banco'))
     produto_filtro_produto=split_dataframe(produto_filtro,"Produto",opcao2)
     expander = st.expander("Tabela de resultados pelo produto escolhido: -> (clique aqui 🖱️)")
     expander.dataframe(produto_filtro_produto)
