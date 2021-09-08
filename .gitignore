@@ -1,4 +1,6 @@
+virtualenv
 /virtualenv
 ./virtualenv
 /virtualenv/
 /virtualenv/*
+virtualenv
