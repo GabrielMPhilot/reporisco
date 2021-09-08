@@ -13,14 +13,14 @@ from computer.data_historic import *
 import time
 
 st.image('[LOGO] Eduqo.png')
-var_senha ="padre fluminense"
+var_senha ="padre"
 show_senha = 0
 senha = ''
 if senha !=var_senha:
-    senha = st.text_input("Digite a senha para conseguir acessar o relátorio")
+    senha = str(st.text_input("Digite a senha para conseguir acessar o relátorio")).strip().lower()
     if st.checkbox(" <-  (clique aqui 🖱️) Se quiser visualizar a dica"): 
         """
-        #### 1.  Qual o apelido desse jovem e qual time que ele torce ?
+        #### 1.  Qual o apelido desse jovem ?
         """
         """
         ## 
@@ -29,12 +29,7 @@ if senha !=var_senha:
         """
         ## 
         """
-        """
-        #### 2. Escrever tudo em letra minuscula 
-        """
-        """
-        ## 
-        """
+        
 
     if senha =='':
         pass
@@ -168,6 +163,7 @@ if show_senha ==1:
     if st.checkbox(" <-  (clique aqui 🖱️) Se quiser visualizar esse mesmo gráfico de um determinado produto "):
         genre = st.radio("Escolha o tipo de Produto.",('Pedagógico', 'Diagnóstico','Escola+','Banco'))
         grafico_um_escolhido_plot=split_dataframe(grafico_um_escolhido,"Produto",genre)
+        
         figesco =px.bar(grafico_um_escolhido_plot, x='Risco', y='Quantidade de escolas',
                color='Risco',
                color_discrete_sequence=["#E45756","#F58518","#54A24B","#4C78A8"],

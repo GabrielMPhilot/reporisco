@@ -200,18 +200,13 @@ def split_dataframe(dataframe, column_name1="a2",var1="a", column_name2="b2", va
     Returns:
         pd.Dataframe: splited dataframe
     """
-    if var1+var2=="ab" or column_name1+column_name2=="a2+b2":
-        return '⚠️ Warning ⚠️ Needs at leat one column name and variable'
-    elif (column_name1!="a2" and var1=="a") or (column_name2!="b2" and var2=="b"):
-        return '⚠️ Warning ⚠️ Missing a value'
+    df = pd.DataFrame()
+    if column_name2+var2=="b2b":
+        df = dataframe[(dataframe[column_name1]==var1)].reset_index(drop=True)
+        return df
     else:
-        df = pd.DataFrame()
-        if column_name2+var2=="b2b":
-            df = dataframe[(dataframe[column_name1]==var1)].reset_index(drop=True)
-            return df
-        else:
-            df = dataframe[(dataframe[column_name1]==var1) & (dataframe[column_name2]==var2)].reset_index(drop=True)
-            return df
+        df = dataframe[(dataframe[column_name1]==var1) & (dataframe[column_name2]==var2)].reset_index(drop=True)
+        return df
 
 # extracting value of each cell by average ratio
 def avg_ratio(dataframe, avg_dataframe):
@@ -331,6 +326,8 @@ def df_set_plotly_rik(dataframe):
     aux_df= df["quartil"].sum()
     df["Porcentagem"]=(((df["quartil"]/aux_df)*100).round(2)).astype(str)+'%'
     df = df.rename(columns={"quartil": "Quantidade de escolas"})
+    b=0
+    
     # sorting the df
     df["order"]=0
     for i in range (len(df["Risco"])):
