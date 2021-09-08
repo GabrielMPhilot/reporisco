@@ -391,7 +391,7 @@ def emojis_column_dealo(dataframe):
 
     return df
 
-# teste para ajudar comite
+# teste para ajudar comite dadasd
 def produto_escola_mais(dataframe):
     """Set the product escola+ ready for the front us
 
