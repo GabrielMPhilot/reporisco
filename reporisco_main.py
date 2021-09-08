@@ -9,7 +9,7 @@ from PIL import Image
 from computer.data_process import *
 from computer.data_front import *
 from computer.funcomputer import *
-
+from computer.data_historic import *
 import time
 
 st.image('[LOGO] Eduqo.png')
@@ -43,7 +43,10 @@ if senha !=var_senha:
     elif senha == var_senha:
         show_senha = 1
 
+
 if show_senha ==1:
+    
+    
     """
     # 🌡️ Repositorios - Produto
 
@@ -51,7 +54,7 @@ if show_senha ==1:
 
 
 
-# Titulo
+    # Titulo
 
 
 
@@ -534,6 +537,7 @@ if show_senha ==1:
     """
 
 
-
+else:
+    pass
 
 
