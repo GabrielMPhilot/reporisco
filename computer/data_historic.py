@@ -27,7 +27,7 @@ else:
     df_aux_hist = reorder_columns(total_quartil,"Risco",1).iloc[:,:2]
     df_aux_hist = df_aux_hist.rename(columns={"Risco":data_final})
     historical_data_rik=pd.merge(historical_data_rik, df_aux_hist, on="namespace", how='outer')
-    historical_data_rik.to_csv("../repoprojeto/csvs/hist_csvs/hist_risk.csvb",sep=',')
+    historical_data_rik.to_csv("../repoprojeto/csvs/hist_csvs/hist_risk2.csv",sep=',')
     
     # * Points by categorical avg dataframes
     #df_aux_hist_points = get_columns(total_pontos, pont_pedago_030)
