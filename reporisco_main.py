@@ -221,9 +221,9 @@ if show_senha ==1:
     expander = st.expander("🌳 Obs arvore de decisão  -> (clique aqui 🖱️)")
     expander.write("Vimos que a Métrica do número total de questões é protagonista para separar escolas entre o Risco alto e baixo, pois de 101 namespaces, 85 de 87 namespaces tiveram 🔥 Risco alto.")
     expander.write("Deve se notar que a combinação da primeira métrica com a segunda com valores baixos tem um resultado de quase todos namespaces em risco.")
-    """
-    Lembrando que essa estimativa do modelo deve ser vista pelo Sucesso do cliente como um meio para criar um plano de ação, para melhorar o risco do cliente, e isso não significa subir essas métricas diretamente, mas sim ficar de olho em todas as suas métricas e em especial nessas duas que foram salientadas pelo modelo de árvore.
-    """
+    #"""
+    #Lembrando que essa estimativa do modelo deve ser vista pelo Sucesso do cliente como um meio para criar um plano de ação, para melhorar o risco do cliente, e isso não significa subir essas métricas diretamente, mas sim ficar de olho em todas as suas métricas e em especial nessas duas que foram salientadas pelo modelo de árvore.
+    #"""
     
     """
     ### 🧪 Teste para um caso de **Risco alto** e **Risco Baixo**.
