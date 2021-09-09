@@ -173,5 +173,6 @@ lista_pontos = [pont_pedago_030, pont_pedago_34, pont_pedago_48, pont_pedago_812
 total_pontos = append_dataframes(lista_pontos).reset_index(drop=True)
 total_pontos = pd.merge(t_prod, total_pontos, on="namespace", how='left')
 
-
-
+# total norm dataframe
+lista_norm = [norm_pedago_030, norm_pedago_34, norm_pedago_48, norm_pedago_812, norm_pedago_12x, normdia03, normdia34, normdia48, normdia812, normdia12x]
+total_norm = append_dataframes(lista_norm).sort_values(by=['namespace'], ascending=[True]).reset_index(drop=True)

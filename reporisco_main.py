@@ -10,6 +10,8 @@ from computer.data_process import *
 from computer.data_front import *
 from computer.funcomputer import *
 from computer.data_historic import *
+from computer.decision_tree import *
+
 import time
 
 st.image('[LOGO] Eduqo.png')
@@ -37,7 +39,6 @@ if senha !=var_senha:
         st.warning("Senha incorreta! Tente de novo user, **preste atenção na dica**")
     elif senha == var_senha:
         show_senha = 1
-
 
 if show_senha ==1:
     
@@ -212,6 +213,19 @@ if show_senha ==1:
     ##
     """
     """
+    ### 💎 Iluminações ( Insights ) sobre as métricas
+    A partir dos resultados de nosso modelo de quartil's foi criado um modelo de árvore de decisão,
+    para auxiliar a enxergar quais métricas que tem um papel mais protagonista para separar escolas com Riscos:  🔥 **Alto** e 🥇 **Baixo**.
+    """
+    st.image('arvore.png')
+    expander = st.expander("🌳 Obs arvore de decisão  -> (clique aqui 🖱️)")
+    expander.write("Vimos que a Métrica do número total de questões é protagonista para separar escolas entre o Risco alto e baixo, pois de 101 namespaces, 85 de 87 namespaces tiveram 🔥 Risco alto.")
+    expander.write("Deve se notar que a combinação da primeira métrica com a segunda com valores baixos tem um resultado de quase todos namespaces em risco.")
+    """
+    Lembrando que essa estimativa do modelo deve ser vista pelo Sucesso do cliente como um meio para criar um plano de ação, para melhorar o risco do cliente, e isso não significa subir essas métricas diretamente, mas sim ficar de olho em todas as suas métricas e em especial nessas duas que foram salientadas pelo modelo de árvore.
+    """
+    
+    """
     ### 🧪 Teste para um caso de **Risco alto** e **Risco Baixo**.
     """
 
@@ -244,8 +258,9 @@ if show_senha ==1:
 
 
         expander = st.expander("Obs Gráfico de conteúdos: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
-        expander.write("Nesse gráfico as métricas relacionadas a PDF's, e vídeos são inversamente proporcionais a pontuação, ou seja quanto menor a quantidade de conteúdos destes tipos maior será a pontuação.")
-
+        expander.write("Nesse gráfico as métricas relacionadas a PDF's e Vídeos são inversamente proporcionais a pontuação, ou seja quanto menor a quantidade de conteúdos destes tipos maior será a pontuação no gráfico.")
+        expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos conteúdos do tipo PDF's/Vídeos em relação a sua categoria e **valor menor que 1** significa que utiliza mais PDF's e vídeos em relação a sua categoria.")
+        
         fig_rela =px.bar(rela_show_altorisco, x='Métricas', y='Valor',
                    color='Namespace',barmode='group',
                    color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
@@ -286,6 +301,7 @@ if show_senha ==1:
         st.plotly_chart(fig_engaj)
         expander = st.expander("Obs Gráfico de engajamento: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
         expander.write("Nesse gráfico a métrica relacionada a baixar resultados é inversamente proporcional, ou seja quanto menos resultados a escola baixar maior será a pontuação, pois esse dado indica que a escola não está utilizando nossas ferramentas de relátorios e isso pode vir a ser uma grande dor da escola, exemplo desse dor: Colégio Eccos.")
+        expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos a função de baixar resultados em relação a sua categoria e **valor menor que 1** significa que utiliza mais a função de baixar resultados em relação a sua categoria.")
         st.write('##')
         st.write('### 📝 Diagnóstico com a as tabelas e olhando namespace')
         st.write("#### Link do namespace:  [link](https://overnascimentodecastro.qmagico.com.br/cadernos/todos_cadernos)")
@@ -326,7 +342,8 @@ if show_senha ==1:
 
 
         expander = st.expander("Obs Gráfico de conteúdos: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
-        expander.write("Nesse gráfico as métricas relacionadas a PDF's, e vídeos são inversamente proporcionais a pontuação, ou seja quanto menor a quantidade de conteúdos destes tipos maior será a pontuação.")
+        expander.write("Nesse gráfico as métricas relacionadas a PDF's e Vídeos são inversamente proporcionais a pontuação, ou seja quanto menor a quantidade de conteúdos destes tipos maior será a pontuação no gráfico.")
+        expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos conteúdos do tipo PDF's/Vídeos em relação a sua categoria e **valor menor que 1** significa que utiliza mais PDF's e vídeos em relação a sua categoria.")
 
         fig_rela1 =px.bar(rela_show_brisco, x='Métricas', y='Valor',
                    color='Namespace',barmode='group',
@@ -368,6 +385,8 @@ if show_senha ==1:
         st.plotly_chart(fig_engaj1)
         expander = st.expander("Obs Gráfico de engajamento: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
         expander.write("Nesse gráfico a métrica relacionada a baixar resultados é inversamente proporcional, ou seja quanto menos resultados a escola baixar maior será a pontuação, pois esse dado indica que a escola não está utilizando nossas ferramentas de relátorios e isso pode vir a ser uma grande dor da escola, exemplo desse dor: Colégio Eccos.")
+        expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos a função de baixar resultados em relação a sua categoria e **valor menor que 1** significa que utiliza mais a função de baixar resultados em relação a sua categoria.")
+        
         st.write('##')
         st.write('### 📝 Diagnóstico com a as tabelas e olhando namespace')
         st.write("#### Link do namespace:  [link](https://colegioiguatemy.qmagico.com.br/cadernos/todos_cadernos)")
@@ -456,9 +475,11 @@ if show_senha ==1:
     fig_cont11.update_xaxes(showgrid=False)
     fig_cont11.update_layout(title = "Métricas na Tabela de Conteúdos")
     st.plotly_chart(fig_cont11)
-
+    
     expander = st.expander("Obs Gráfico de conteúdos: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
-    expander.write("Nesse gráfico as métricas relacionadas a PDF's, e vídeos são inversamente proporcionais a pontuação, ou seja quanto menor a quantidade de conteúdos destes tipos maior será a pontuação.")
+    expander.write("Nesse gráfico as métricas relacionadas a PDF's e Vídeos são inversamente proporcionais a pontuação, ou seja quanto menor a quantidade de conteúdos destes tipos maior será a pontuação no gráfico.")
+    expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos conteúdos do tipo PDF's/Vídeos em relação a sua categoria e **valor menor que 1** significa que utiliza mais PDF's e vídeos em relação a sua categoria.")
+    
     fig_rela11 =px.bar(relashow, x='Métricas', y='Valor',
                    color='Namespace',barmode='group',
                    color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
@@ -499,6 +520,8 @@ if show_senha ==1:
     st.plotly_chart(fig_engaj11)
     expander = st.expander("Obs Gráfico de engajamento: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
     expander.write("Nesse gráfico a métrica relacionada a baixar resultados é inversamente proporcional, ou seja quanto menos resultados a escola baixar maior será a pontuação, pois esse dado indica que a escola não está utilizando nossas ferramentas de relátorios e isso pode vir a ser uma grande dor da escola, exemplo desse dor: Colégio Eccos.")
+    expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos a função de baixar resultados em relação a sua categoria e **valor menor que 1** significa que utiliza mais a função de baixar resultados em relação a sua categoria.")
+    
     """
     ### 💎 Iluminações ( Insights )
     O foco ( por enquanto ) será em cima do mal uso da plataforma.

@@ -264,7 +264,7 @@ def append_dataframes(list):
         df=df.append(item)
     return df
 
-# geting     
+# filter of colums by a second dataframe
 def get_columns(dataframe1,dataframe2):
     """Chosing the columns to use from a dataframe to other
     
@@ -284,13 +284,35 @@ def get_columns(dataframe1,dataframe2):
     
     return df
 
+def chose_rows(dataframe1,dataframe2,bool: bool= True):
+    """[Chose rows to use in a dataframe based on a list of columns]
 
+    Args:
+        dataframe1 ([pd.dataframe]): [dataframe that you want to filter the rows]
+        dataframe2 ([pd.dataframe]): [dataframe that yot use for filtering rows]
+        coluna (str): [column name for the filter]
+        bool (bool, optional): [True for keeping, False for not keeping the rows]. Defaults to True.
 
+    Returns:
+        [pd.dataframe]: [Dataframe with the selected rows]
+    """
+    df = pd.DataFrame()
+    df2 = pd.DataFrame()
+    col = "namespace"
+    df2 = dataframe2.copy()
+    df2 = dataframe2[col].tolist()
+    if bool == True:
+        df=dataframe1[dataframe1.namespace.isin(df2)]
+    else:
+        df=dataframe1[~dataframe1.namespace.isin(df2)]
+    return df
+    
+    
 #### FRONT-END FUNCTIONS
 
 # set up dataframe for plotly bar graph (métrics)
 def df_set_plotly(data_frame):
-     """Set up dataframe for plotly bar graph (métrics)
+    """Set up dataframe for plotly bar graph (métrics)
 
     Args:
         dataframe(pd.DataFrame): dataframe to use
@@ -298,18 +320,18 @@ def df_set_plotly(data_frame):
     Returns:
         pd.Dataframe: dataframe ready for plot the graph (métrics)
     """
-     # gettings column names
-     coluna = data_frame.columns.values.tolist()
-     coluna.remove("namespace")
-     df=pd.DataFrame()
-     for col in coluna:
+    # gettings column names
+    coluna = data_frame.columns.values.tolist()
+    coluna.remove("namespace")
+    df=pd.DataFrame()
+    for col in coluna:
         for i in range(len(data_frame[col])):
             ns=data_frame.loc[i,"namespace"]
             co=col
             valor=data_frame.loc[i, col]
             new_row={'Namespace': ns, 'Métricas': co, 'Valor': valor}
             df=df.append(new_row, ignore_index=True)
-     return df
+    return df
 
 # set up dataframe for plotly bar graph (risk)
 def df_set_plotly_rik(dataframe):
