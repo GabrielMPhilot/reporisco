@@ -19,7 +19,7 @@
 #varteste12345 = varteste12345[-1]
 #
 ## Validando se houve alguma 
-#if varteste12345 != data_final:
+#if varteste12345 == data_final:
 #    pass
 #else:
 #    
