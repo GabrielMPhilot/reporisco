@@ -19,7 +19,7 @@ varteste12345 = historical_data_rik.columns.values.tolist()
 varteste12345 = varteste12345[-1]
 
 # Validando se houve alguma 
-if varteste12345 == data_final:
+if varteste12345 != data_final:
     pass
 else:
     
@@ -27,9 +27,9 @@ else:
     df_aux_hist = reorder_columns(total_quartil,"Risco",1).iloc[:,:2]
     df_aux_hist = df_aux_hist.rename(columns={"Risco":data_final})
     historical_data_rik=pd.merge(historical_data_rik, df_aux_hist, on="namespace", how='outer')
-    historical_data_rik.to_csv("../repoprojeto/csvs/hist_csvs/hist_risk.csv",sep=',')
+    historical_data_rik.to_csv("../repoprojeto/csvs/hist_csvs/hist_risk.csvb",sep=',')
     
     # * Points by categorical avg dataframes
-    df_aux_hist_points = get_columns(total_pontos, pont_pedago_030)
-    p = Path('../repoprojeto/csvs/hist_csvs/')
-    df_aux_hist_points.to_csv(Path(p, 'hist_' + varteste12345 + '.csv'),sep=',')
+    #df_aux_hist_points = get_columns(total_pontos, pont_pedago_030)
+    #p = Path('../repoprojeto/csvs/hist_csvs/')
+    #df_aux_hist_points.to_csv(Path(p, 'hist_' + varteste12345 + '.csv'),sep=',')
