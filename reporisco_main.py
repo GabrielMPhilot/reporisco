@@ -40,6 +40,8 @@ if senha !=var_senha:
     elif senha == var_senha:
         show_senha = 1
 
+
+
 if show_senha ==1:
     
     
