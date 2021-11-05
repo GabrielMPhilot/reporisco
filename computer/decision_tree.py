@@ -66,4 +66,4 @@
 #             class_names=yy, 
 #             #filled = True,
 #             fontsize=14)
-# fig.savefig("computer/treedecision.png")
+# fig.savefig("./computer/treedecision.png")

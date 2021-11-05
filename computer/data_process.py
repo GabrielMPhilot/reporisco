@@ -168,6 +168,7 @@ lista_quartil = [quartil_pegado_030, quartil_pegado_34, quartil_pegado_48, quart
 total_quartil = append_dataframes(lista_quartil).sort_values(by=['quartil','soma'], ascending=[False,True]).reset_index(drop=True)
 total_quartil = pd.merge(total_quartil, t_prod, on="namespace", how='left')
 
+
 # total points dataframe
 lista_pontos = [pont_pedago_030, pont_pedago_34, pont_pedago_48, pont_pedago_812, pont_pedago_12x, pontdia03, pontdia34, pontdia48, pontdia812, pontdia12x, pontbc03, pontbc34, pontbc48, pontbc812, pontbc12x]
 total_pontos = append_dataframes(lista_pontos).reset_index(drop=True)
@@ -176,3 +177,8 @@ total_pontos = pd.merge(t_prod, total_pontos, on="namespace", how='left')
 # total norm dataframe
 lista_norm = [norm_pedago_030, norm_pedago_34, norm_pedago_48, norm_pedago_812, norm_pedago_12x, normdia03, normdia34, normdia48, normdia812, normdia12x]
 total_norm = append_dataframes(lista_norm).sort_values(by=['namespace'], ascending=[True]).reset_index(drop=True)
+
+
+# points with riick
+point_risk = pd.merge(total_quartil, total_pontos, on="namespace", how='outer')
+
