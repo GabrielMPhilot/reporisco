@@ -1,5 +1,6 @@
 ,namespace,M.Pdfs,M.Videos,M.Tarefas,M.S.Exs
 0,abdiasmartins,1.38,1.35,0.11,0.08
+<<<<<<< HEAD
 1,abiliomartins,1.28,1.4,0.22,0.05
 2,acessoalmirantetamandare,1.46,1.28,0.22,0.04
 3,acessoboqueirao,1.67,1.04,0.17,0.08
@@ -8,6 +9,16 @@
 6,acessofazendariogrande,1.61,1.22,0.09,0.07
 7,acessohauer,1.57,1.02,0.28,0.02
 8,acessopinhais,1.59,1.19,0.1,0.07
+=======
+1,abiliomartins,1.28,1.41,0.21,0.05
+2,acessoalmirantetamandare,1.46,1.28,0.21,0.04
+3,acessoboqueirao,1.68,1.04,0.16,0.08
+4,acessocampolargo,1.58,1.25,0.11,0.04
+5,acessocampolargokids,1.5,1.16,0.35,0.0
+6,acessofazendariogrande,1.62,1.22,0.08,0.07
+7,acessohauer,1.6,1.02,0.27,0.02
+8,acessopinhais,1.59,1.19,0.09,0.07
+>>>>>>> 9d15404143d39664946594a37f902927a39adb76
 9,acessosantafelicidade,1.64,1.1,0.22,0.03
 10,acessosjpinhais,1.45,1.42,0.05,0.07
 11,adrianochan,1.44,1.4,0.0,0.15
@@ -33,6 +44,7 @@
 31,casdvest,1.61,1.28,0.02,0.03
 32,ceabb,1.62,1.08,0.23,0.06
 33,ceespacolivre,1.6,1.24,0.13,0.0
+<<<<<<< HEAD
 34,cem,1.34,1.21,0.18,0.26
 35,ceprimeiromundo,1.62,1.14,0.21,0.01
 36,ciadosaber,1.59,1.39,0.01,0.01
@@ -83,6 +95,58 @@
 81,eldapereira,1.02,1.51,0.44,0.01
 82,elitecuritiba,1.99,1.0,0.0,0.0
 83,elitecuritibaemilianoperneta,1.52,1.01,0.02,0.11
+=======
+34,cem,1.34,1.21,0.18,0.25
+35,ceprimeiromundo,1.63,1.14,0.21,0.01
+36,ciadosaber,1.59,1.39,0.01,0.01
+37,cognitivo,1.42,1.22,0.02,0.35
+38,colegioarena,1.2,1.02,0.36,0.42
+39,colegiobetelbrasileirosp,1.09,1.85,0.06,0.0
+40,colegiobiangulo,1.0,2.0,0.0,0.0
+41,colegiobianguloiv,1.0,2.0,0.0,0.0
+42,colegiobilac,1.17,1.15,0.37,0.26
+43,colegiobrasilia,1.78,1.09,0.04,0.06
+44,colegiocb,1.25,1.38,0.29,0.08
+45,colegiodasamericas,1.47,1.18,0.15,0.04
+46,colegioeag,1.17,1.43,0.29,0.01
+47,colegioecursodesafio,1.11,1.32,0.33,0.23
+48,colegioecursoprogressao,1.54,1.02,0.24,0.18
+49,colegioeducallis,1.1,1.03,0.79,0.06
+50,colegioensitec,1.27,1.54,0.15,0.03
+51,colegioflamingo,1.36,1.07,0.26,0.2
+52,colegiofuturageracao,1.4,1.07,0.51,0.01
+53,colegioguilhermedealmeida,1.4,1.06,0.43,0.09
+54,colegioiguatemy,1.5,1.14,0.29,0.06
+55,colegiointegral,1.15,1.62,0.12,0.09
+56,colegiojoaopaulo,1.6,1.2,0.11,0.01
+57,colegioliceu,1.3,1.22,0.0,0.47
+58,colegioplanck,1.6,1.19,0.0,0.05
+59,colegiopremium,1.56,1.04,0.27,0.03
+60,colegiopremiumgentil,1.32,1.19,0.0,0.0
+61,colegioriobranco,1.32,1.23,0.0,0.44
+62,colegiosantamaria,1.27,1.22,0.04,0.46
+63,colegiosaoluis,1.13,1.55,0.01,0.31
+64,colegiosete,1.13,1.15,0.2,0.51
+65,colegiouirapuru,1.19,1.13,0.15,0.5
+66,colegiouniverso,1.13,1.84,0.01,0.03
+67,conexaosaber,1.1,1.01,0.88,0.0
+68,conradochaves,1.16,1.4,0.43,0.0
+69,criancaesperanca,1.09,1.91,0.0,0.0
+70,cursobase,1.86,1.0,0.0,0.14
+71,cursoenfase,1.98,1.01,0.0,0.01
+72,cursoisfera,1.95,1.01,0.0,0.02
+73,cursoleopoldo,1.34,1.66,0.0,0.0
+74,cursosazambuja,1.25,1.65,0.06,0.04
+75,dante,1.27,1.29,0.0,0.44
+76,eacorcovado,1.54,1.13,0.21,0.07
+77,eccos,1.73,1.08,0.11,0.06
+78,educamais,1.09,1.09,0.09,0.66
+79,educarse,1.3,1.5,0.0,0.11
+80,einsteinassis,1.13,1.61,0.07,0.19
+81,eldapereira,1.02,1.51,0.44,0.01
+82,elitecuritiba,1.99,1.0,0.0,0.0
+83,elitecuritibaemilianoperneta,1.53,1.0,0.02,0.11
+>>>>>>> 9d15404143d39664946594a37f902927a39adb76
 84,equipe,1.2,1.24,0.0,0.48
 85,escolaceciliameireles,1.02,1.06,0.91,0.0
 86,escoladofuturo,1.24,1.25,0.01,0.5
@@ -91,6 +155,7 @@
 89,faculdadeflamingo,1.63,1.18,0.06,0.1
 90,forumcultural,1.23,1.23,0.01,0.51
 91,franciscoperes,1.0,1.73,0.27,0.0
+<<<<<<< HEAD
 92,franciscopinto,1.06,1.0,0.85,0.02
 93,gamt,1.4,1.11,0.46,0.01
 94,guilhermefilho,1.08,1.52,0.2,0.01
@@ -103,6 +168,20 @@
 101,ipdhsolucoes,1.18,1.29,0.02,0.0
 102,iracemarufino,1.01,1.98,0.01,0.0
 103,isem,1.77,1.09,0.14,0.01
+=======
+92,franciscopinto,1.07,1.0,0.84,0.02
+93,gamt,1.4,1.11,0.46,0.01
+94,guilhermefilho,1.08,1.52,0.2,0.01
+95,hamiltondarocha,1.12,1.25,0.46,0.07
+96,insa,1.52,1.33,0.05,0.09
+97,institutoeurofarma,1.4,1.46,0.0,0.15
+98,integra,1.34,1.33,0.29,0.01
+99,integradaeducativa,1.61,1.13,0.08,0.18
+100,invictus,1.11,1.49,0.38,0.02
+101,ipdhsolucoes,1.18,1.29,0.02,0.0
+102,iracemarufino,1.01,1.98,0.01,0.0
+103,isem,1.77,1.08,0.14,0.01
+>>>>>>> 9d15404143d39664946594a37f902927a39adb76
 104,ismart,1.41,1.21,0.01,0.34
 105,itamarati,1.75,1.06,0.18,0.0
 106,jardimsaopaulo,1.43,1.2,0.02,0.35
@@ -110,7 +189,11 @@
 108,joaorosa,1.29,1.18,0.25,0.1
 109,joaosampaio,1.42,1.32,0.25,0.0
 110,josemelo,1.4,1.45,0.0,0.0
+<<<<<<< HEAD
 111,josepinheiro,1.1,1.13,0.25,0.4
+=======
+111,josepinheiro,1.1,1.12,0.25,0.41
+>>>>>>> 9d15404143d39664946594a37f902927a39adb76
 112,josesoares,1.17,1.44,0.11,0.28
 113,laboratoriosromildo,1.0,1.97,0.02,0.0
 114,liessin,1.63,1.04,0.0,0.04
@@ -129,6 +212,7 @@
 127,mastersolucoes,1.22,1.22,0.0,0.0
 128,melquiadescamelo,1.75,1.06,0.06,0.0
 129,moaciralves,1.25,1.41,0.14,0.07
+<<<<<<< HEAD
 130,mocinhagomes,1.12,1.32,0.27,0.2
 131,monsenhorfrancisco,1.55,1.32,0.11,0.02
 132,monsenhorgoncalo,1.24,1.59,0.16,0.01
@@ -147,10 +231,31 @@
 145,overnascimentodecastro,1.21,1.78,0.0,0.0
 146,overpontanegra,1.13,1.71,0.13,0.01
 147,overzonanorte,1.12,1.8,0.06,0.01
+=======
+130,mocinhagomes,1.12,1.32,0.27,0.21
+131,monsenhorfrancisco,1.55,1.32,0.11,0.02
+132,monsenhorgoncalo,1.24,1.59,0.16,0.01
+133,motiva,1.73,1.13,0.0,0.14
+134,murilorocha,1.4,1.21,0.22,0.03
+135,navegasas,1.23,1.27,0.32,0.12
+136,novotempo,1.17,1.33,0.17,0.33
+137,nsfatima,1.18,1.55,0.27,0.0
+138,nucleocriativo,1.01,1.84,0.13,0.02
+139,objetivolorena,1.54,1.16,0.23,0.06
+140,overabelcabral,1.22,1.64,0.11,0.02
+141,overjoaopessoa,1.15,1.81,0.02,0.01
+142,overlimaesilva,1.2,1.42,0.37,0.0
+143,overmarciliofurtado,1.14,1.8,0.04,0.01
+144,overmossoro,1.19,1.65,0.14,0.0
+145,overnascimentodecastro,1.21,1.78,0.0,0.0
+146,overpontanegra,1.13,1.72,0.13,0.01
+147,overzonanorte,1.13,1.8,0.06,0.01
+>>>>>>> 9d15404143d39664946594a37f902927a39adb76
 148,pauloviana,1.64,1.21,0.07,0.07
 149,pedrocamelo,1.0,1.45,0.41,0.0
 150,pesenglish,1.07,1.91,0.01,0.0
 151,physicsalcindocacela,1.91,1.02,0.0,0.07
+<<<<<<< HEAD
 152,physicsalmirantebarroso,1.52,1.09,0.03,0.34
 153,physicsaugustomontenegro,1.76,1.01,0.02,0.21
 154,physicsbatistacampos,1.51,1.01,0.09,0.39
@@ -191,3 +296,44 @@
 189,vicentecravo,1.03,1.3,0.66,0.02
 190,villalobos,1.67,1.05,0.06,0.2
 191,zacariasliberato,1.02,1.44,0.36,0.0
+=======
+152,physicsalmirantebarroso,1.52,1.1,0.03,0.33
+153,physicsaugustomontenegro,1.76,1.01,0.02,0.21
+154,physicsbatistacampos,1.51,1.01,0.09,0.38
+155,physicscidadenova,1.55,1.05,0.05,0.35
+156,physicsconselheirofurtado,1.99,1.0,0.0,0.0
+157,physicsmacapa,1.55,1.09,0.04,0.32
+158,physicsumarizal,1.64,1.03,0.02,0.3
+159,pioxi,1.17,1.49,0.33,0.01
+160,portinari,1.5,1.05,0.39,0.02
+161,porto,1.58,1.08,0.03,0.3
+162,portoseguro,1.0,1.0,0.0,0.0
+163,primeirodemaio,1.56,1.15,0.02,0.08
+164,profederal,1.61,1.05,0.01,0.06
+165,provaspoliedro,1.76,1.0,0.03,0.17
+166,psantagema,1.4,1.01,0.19,0.4
+167,raimundoalves,1.58,1.08,0.21,0.08
+168,riobrancocampinas,1.24,1.0,0.14,0.14
+169,sagradafamilia,1.3,1.22,0.0,0.47
+170,santadoroteia,1.3,1.22,0.0,0.47
+171,santoagostinho,1.27,1.27,0.0,0.46
+172,santoamerico,1.36,1.13,0.1,0.06
+173,sas,1.3,1.21,0.03,0.45
+174,sasadapt,1.04,1.0,0.08,0.25
+175,sasadaptem,1.26,1.23,0.0,0.51
+176,sasadaptfund,1.39,1.24,0.0,0.37
+177,saseducacao,1.32,1.24,0.0,0.44
+178,senhorbonfim,1.25,1.57,0.1,0.02
+179,serios,1.46,1.22,0.0,0.3
+180,spdacruz,1.47,1.14,0.3,0.03
+181,stellamarisaguaverde,1.41,1.25,0.32,0.02
+182,stellamarisjuveve,1.65,1.15,0.14,0.06
+183,stellamarisxaxim,1.75,1.04,0.07,0.13
+184,universitariolondrina,1.3,1.53,0.08,0.08
+185,universobarcarena,1.79,1.03,0.15,0.04
+186,valdemiracoelho,1.35,1.28,0.14,0.05
+187,venceslauchaves,1.06,1.94,0.0,0.0
+188,vicentecravo,1.03,1.3,0.66,0.02
+189,villalobos,1.67,1.05,0.06,0.2
+190,zacariasliberato,1.02,1.41,0.38,0.0
+>>>>>>> 9d15404143d39664946594a37f902927a39adb76
