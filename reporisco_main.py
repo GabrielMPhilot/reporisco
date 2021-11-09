@@ -64,6 +64,7 @@ if show_senha ==1:
     st.sidebar.write("##### Jira:  [link](https://qmagico.atlassian.net/jira/core/projects/SQ5/board?issueKey=SQ5-26)")
     st.sidebar.write('#')
     st.sidebar.write('#### Resultado de nosso modelo (Todos namespaces):',get_table_download_link(produto_filtro), unsafe_allow_html=True)
+    
     """
     ### 💡 Grande ideia do Projeto
     O objetivo desse projeto é criar um HealthScore escalavel e preciso sobre nossos clientes.
@@ -83,7 +84,7 @@ if show_senha ==1:
     #### 2. Tabela de Questões:
     """
     expander = st.expander(" -> (clique aqui 🖱️)")
-    expander.write(" Essa Tabela contempla dados do n° de questões totais subidas(prof/admin), n° de questões discursivas subidas(profs/admin),n° de questões totais do banco subidas (prof/admin).")
+    expander.write(" Essa Tabela contempla dados do n° de questões totais subidas, criadas ou usadas do banco de questões (prof/admin), n° de questões discursivas subidas, criadas ou usadas do banco de questões (profs/admin),n° de questões totais do banco utilizadas (prof/admin).")
     """
     #### 3. Tabela de Relatórios:
     """
@@ -447,83 +448,170 @@ if show_senha ==1:
     Após checar os resultados, é uma boa pratica, caso tenha alguma dúvida ou queira fazer alguma analise, checar as métricas de seu namespace de escolha.
 
     """
-
     """
-    ###  📊 Visualização de todas as métricas por **namespace**
+    ###  📌 Exposição dos resultados de das Métricas, por Namespace e por grupo de Risco.
     """
-    select2 = st.selectbox('',namespace_list, key='1')
-    filtronamespace = split_dataframe(total_pontos,"namespace",select2)
-    contshow = df_set_plotly(get_columns(filtronamespace,t_conteudos))
-    relashow = df_set_plotly(get_columns(filtronamespace,t_relas))
-    questshow = df_set_plotly(get_columns(filtronamespace, t_quest))
-    engjshow = df_set_plotly(get_columns(filtronamespace, t_engaj))
-    namespace_risco=split_dataframe(produto_filtro,"namespace",select2)
-
-    st.write('#### 📌 Informações sobre o namespace escolhido')
-
-    st.table(namespace_risco)
-
-
-
-    fig_cont11 =px.bar(contshow, x='Métricas', y='Valor',
-                   color='Namespace',barmode='group',
-                   color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
-                   #color_discrete_sequence=px.colors.qualitative.T10,
-                    text=contshow['Valor'])
-
-    fig_cont11.add_hline(y=1, line_dash="dot", col="all",
-                  annotation_text="Média Categoria", 
-                  annotation_position="bottom right")
-    fig_cont11.update_xaxes(showgrid=False)
-    fig_cont11.update_layout(title = "Métricas na Tabela de Conteúdos")
-    st.plotly_chart(fig_cont11)
+    graficos_fin = st.radio("",('Namespaces','Grau de Risco'))
     
-    expander = st.expander("Obs Gráfico de conteúdos: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
-    expander.write("Nesse gráfico as métricas relacionadas a PDF's e Vídeos são inversamente proporcionais a pontuação, ou seja quanto menor a quantidade de conteúdos destes tipos maior será a pontuação no gráfico.")
-    expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos conteúdos do tipo PDF's/Vídeos em relação a sua categoria e **valor menor que 1** significa que utiliza mais PDF's e vídeos em relação a sua categoria.")
+    if graficos_fin =='Namespaces':
+        
+        """
+        ###  📊 Visualização de todas as métricas por **namespace**
+        """
+        select2 = st.selectbox('',namespace_list, key='1')
+        filtronamespace = split_dataframe(total_pontos,"namespace",select2)
+        contshow = df_set_plotly(get_columns(filtronamespace,t_conteudos))
+        relashow = df_set_plotly(get_columns(filtronamespace,t_relas))
+        questshow = df_set_plotly(get_columns(filtronamespace, t_quest))
+        engjshow = df_set_plotly(get_columns(filtronamespace, t_engaj))
+        namespace_risco=split_dataframe(produto_filtro,"namespace",select2)
+
+        st.write('#### 📌 Informações sobre o namespace escolhido')
+
+        st.table(namespace_risco)
+        
+
+
+        fig_cont11 =px.bar(contshow, x='Métricas', y='Valor',
+                       color='Namespace',barmode='group',
+                       color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
+                       #color_discrete_sequence=px.colors.qualitative.T10,
+                        text=contshow['Valor'])
+
+        fig_cont11.add_hline(y=1, line_dash="dot", col="all",
+                      annotation_text="Média Categoria", 
+                      annotation_position="bottom right")
+        fig_cont11.update_xaxes(showgrid=False)
+        fig_cont11.update_layout(title = "Métricas na Tabela de Conteúdos")
+        st.plotly_chart(fig_cont11)
+
+        expander = st.expander("Obs Gráfico de conteúdos: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
+        expander.write("Nesse gráfico as métricas relacionadas a PDF's e Vídeos são inversamente proporcionais a pontuação, ou seja quanto menor a quantidade de conteúdos destes tipos maior será a pontuação no gráfico.")
+        expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos conteúdos do tipo PDF's/Vídeos em relação a sua categoria e **valor menor que 1** significa que utiliza mais PDF's e vídeos em relação a sua categoria.")
+
+        fig_rela11 =px.bar(relashow, x='Métricas', y='Valor',
+                       color='Namespace',barmode='group',
+                       color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
+                       #color_discrete_sequence=px.colors.qualitative.T10,
+                        text=relashow['Valor'])
+
+        fig_rela11.add_hline(y=1, line_dash="dot", col="all",
+                      annotation_text="Média Categoria", 
+                      annotation_position="bottom right")
+        fig_rela11.update_xaxes(showgrid=False)
+        fig_rela11.update_layout(title = "Métricas na Tabela de Relátorios")
+        st.plotly_chart(fig_rela11)
+
+        fig_quest11 =px.bar(questshow, x='Métricas', y='Valor',
+                       color='Namespace',barmode='group',
+                       color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
+                       #color_discrete_sequence=px.colors.qualitative.T10,
+                        text=questshow['Valor'])
+
+        fig_quest11.add_hline(y=1, line_dash="dot", col="all",
+                      annotation_text="Média Categoria", 
+                      annotation_position="bottom right")
+        fig_quest11.update_xaxes(showgrid=False)
+        fig_quest11.update_layout(title = "Métricas na Tabela de Questões")
+        st.plotly_chart(fig_quest11)
+
+        fig_engaj11 =px.bar(engjshow, x='Métricas', y='Valor',
+                       color='Namespace',barmode='group',
+                       color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
+                       #color_discrete_sequence=px.colors.qualitative.T10,
+                        text=engjshow['Valor'])
+
+        fig_engaj11.add_hline(y=1, line_dash="dot", col="all",
+                      annotation_text="Média Categoria", 
+                      annotation_position="bottom right")
+        fig_engaj11.update_xaxes(showgrid=False)
+        fig_engaj11.update_layout(title = "Métricas na Tabela de Engajamento")
+        st.plotly_chart(fig_engaj11)
+        expander = st.expander("Obs Gráfico de engajamento: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
+        expander.write("Nesse gráfico a métrica relacionada a baixar resultados é inversamente proporcional, ou seja quanto menos resultados a escola baixar maior será a pontuação, pois esse dado indica que a escola não está utilizando nossas ferramentas de relátorios e isso pode vir a ser uma grande dor da escola, exemplo desse dor: Colégio Eccos.")
+        expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos a função de baixar resultados em relação a sua categoria e **valor menor que 1** significa que utiliza mais a função de baixar resultados em relação a sua categoria.")
     
-    fig_rela11 =px.bar(relashow, x='Métricas', y='Valor',
-                   color='Namespace',barmode='group',
-                   color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
-                   #color_discrete_sequence=px.colors.qualitative.T10,
-                    text=relashow['Valor'])
-
-    fig_rela11.add_hline(y=1, line_dash="dot", col="all",
-                  annotation_text="Média Categoria", 
-                  annotation_position="bottom right")
-    fig_rela11.update_xaxes(showgrid=False)
-    fig_rela11.update_layout(title = "Métricas na Tabela de Relátorios")
-    st.plotly_chart(fig_rela11)
-
-    fig_quest11 =px.bar(questshow, x='Métricas', y='Valor',
-                   color='Namespace',barmode='group',
-                   color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
-                   #color_discrete_sequence=px.colors.qualitative.T10,
-                    text=questshow['Valor'])
-
-    fig_quest11.add_hline(y=1, line_dash="dot", col="all",
-                  annotation_text="Média Categoria", 
-                  annotation_position="bottom right")
-    fig_quest11.update_xaxes(showgrid=False)
-    fig_quest11.update_layout(title = "Métricas na Tabela de Questões")
-    st.plotly_chart(fig_quest11)
-
-    fig_engaj11 =px.bar(engjshow, x='Métricas', y='Valor',
-                   color='Namespace',barmode='group',
-                   color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
-                   #color_discrete_sequence=px.colors.qualitative.T10,
-                    text=engjshow['Valor'])
-
-    fig_engaj11.add_hline(y=1, line_dash="dot", col="all",
-                  annotation_text="Média Categoria", 
-                  annotation_position="bottom right")
-    fig_engaj11.update_xaxes(showgrid=False)
-    fig_engaj11.update_layout(title = "Métricas na Tabela de Engajamento")
-    st.plotly_chart(fig_engaj11)
-    expander = st.expander("Obs Gráfico de engajamento: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
-    expander.write("Nesse gráfico a métrica relacionada a baixar resultados é inversamente proporcional, ou seja quanto menos resultados a escola baixar maior será a pontuação, pois esse dado indica que a escola não está utilizando nossas ferramentas de relátorios e isso pode vir a ser uma grande dor da escola, exemplo desse dor: Colégio Eccos.")
-    expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos a função de baixar resultados em relação a sua categoria e **valor menor que 1** significa que utiliza mais a função de baixar resultados em relação a sua categoria.")
     
+    elif graficos_fin =='Grau de Risco':
+        """
+        ###  📊 Visualização de todas as métricas por **Grau de Risco**
+        """
+        select3 = st.selectbox('',risklist_two, key='1')
+        filterrisk = split_dataframe(point_risk,"Risco",select3)
+        contshow = df_set_plotly_risk_points(get_columns(filterrisk,t_conteudos),select3)
+        relashow = df_set_plotly_risk_points(get_columns(filterrisk,t_relas),select3)
+        questshow = df_set_plotly_risk_points(get_columns(filterrisk,t_quest),select3)
+        engjshow = df_set_plotly_risk_points(get_columns(filterrisk,t_engaj),select3)
+        
+        fig_cont11 =px.bar(contshow, x='Métricas', y='Valor',
+                       color='Risco',barmode='group',
+                       color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
+                       #color_discrete_sequence=px.colors.qualitative.T10,
+                        text=contshow['Valor'])
+
+        fig_cont11.add_hline(y=1, line_dash="dot", col="all",
+                      annotation_text="Média Categoria", 
+                      annotation_position="bottom right")
+        fig_cont11.update_xaxes(showgrid=False)
+        fig_cont11.update_layout(title = "Métricas na Tabela de Conteúdos")
+        st.plotly_chart(fig_cont11)
+        
+        expander = st.expander("Obs Gráfico de conteúdos: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
+        expander.write("Nesse gráfico as métricas relacionadas a PDF's e Vídeos são inversamente proporcionais a pontuação, ou seja quanto menor a quantidade de conteúdos destes tipos maior será a pontuação no gráfico.")
+        expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos conteúdos do tipo PDF's/Vídeos em relação a sua categoria e **valor menor que 1** significa que utiliza mais PDF's e vídeos em relação a sua categoria.")
+        
+        
+        fig_rela11 =px.bar(relashow, x='Métricas', y='Valor',
+                       color='Risco',barmode='group',
+                       color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
+                       #color_discrete_sequence=px.colors.qualitative.T10,
+                        text=relashow['Valor'])
+
+        fig_rela11.add_hline(y=1, line_dash="dot", col="all",
+                      annotation_text="Média Categoria", 
+                      annotation_position="bottom right")
+        fig_rela11.update_xaxes(showgrid=False)
+        fig_rela11.update_layout(title = "Métricas na Tabela de Relátorios")
+        st.plotly_chart(fig_rela11)
+        
+        fig_quest11 =px.bar(questshow, x='Métricas', y='Valor',
+                       color='Risco',barmode='group',
+                       color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
+                       #color_discrete_sequence=px.colors.qualitative.T10,
+                        text=questshow['Valor'])
+
+        fig_quest11.add_hline(y=1, line_dash="dot", col="all",
+                      annotation_text="Média Categoria", 
+                      annotation_position="bottom right")
+        fig_quest11.update_xaxes(showgrid=False)
+        fig_quest11.update_layout(title = "Métricas na Tabela de Questões")
+        st.plotly_chart(fig_quest11)
+        
+        fig_engaj11 =px.bar(engjshow, x='Métricas', y='Valor',
+                       color='Risco',barmode='group',
+                       color_discrete_sequence=["rgb(102, 197, 204)","rgb(248, 156, 116)"],#)#"#54A24B","#4C78A8"],
+                       #color_discrete_sequence=px.colors.qualitative.T10,
+                        text=engjshow['Valor'])
+
+        fig_engaj11.add_hline(y=1, line_dash="dot", col="all",
+                      annotation_text="Média Categoria", 
+                      annotation_position="bottom right")
+        fig_engaj11.update_xaxes(showgrid=False)
+        fig_engaj11.update_layout(title = "Métricas na Tabela de Engajamento")
+        st.plotly_chart(fig_engaj11)
+        expander = st.expander("Obs Gráfico de engajamento: Métricas inversamente proporcionais -> (clique aqui 🖱️)")
+        expander.write("Nesse gráfico a métrica relacionada a baixar resultados é inversamente proporcional, ou seja quanto menos resultados a escola baixar maior será a pontuação, pois esse dado indica que a escola não está utilizando nossas ferramentas de relátorios e isso pode vir a ser uma grande dor da escola, exemplo desse dor: Colégio Eccos.")
+        expander.write("Mantendo o mesmo princípio de visualização. **Valor próximo ou maior que 1** significa que a escola utiliza poucos a função de baixar resultados em relação a sua categoria e **valor menor que 1** significa que utiliza mais a função de baixar resultados em relação a sua categoria.")
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
     """
     ### 💎 Iluminações ( Insights )
     O foco ( por enquanto ) será em cima do mal uso da plataforma.

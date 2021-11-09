@@ -4,3 +4,6 @@ virtualenv
 /virtualenv/
 /virtualenv/*
 virtualenv
+/SC
+.computer/data_historic.py
+computer/data_historic.py

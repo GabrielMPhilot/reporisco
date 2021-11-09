@@ -6,7 +6,7 @@ from computer.funcomputer import *
 from computer.data_process import *
 import streamlit as st
 
-
+b=2
 # Intervalo de datas
 datas=pd.read_csv("./csvs/interval_datas.csv")
 del datas['Unnamed: 0']
@@ -122,9 +122,13 @@ produto_filtro = produto_escola_mais(produto_filtro)
 # Deal owner list
 dealolist = produto_filtro["Deal Owner"].drop_duplicates().values.tolist()
 
-# Grau de risco
+# Risk list
 grauriscolist = tuple(produto_filtro["Risco"].drop_duplicates().values.tolist())
 
 # Namespace list
 namespace_list = tab_unida_prod["namespace"].tolist()
+
+# Risk lisk two
+risklist_two = total_quartil["Risco"].drop_duplicates().values.tolist()
+
 

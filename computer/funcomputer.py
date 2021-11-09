@@ -9,7 +9,7 @@ import base64
 from pandas.core.frame import DataFrame
 
 
-#### BACK-END FUNCTIONS
+#! BACK-END FUNCTIONS
 
 # reorder columns
 def reorder_columns(dataframe, col_name, position):
@@ -308,9 +308,9 @@ def chose_rows(dataframe1,dataframe2,bool: bool= True):
     return df
     
     
-#### FRONT-END FUNCTIONS
+#!  FRONT-END FUNCTIONS
 
-# set up dataframe for plotly bar graph (métrics)
+# set up dataframe for plotly namespace bar graph (métrics)
 def df_set_plotly(data_frame):
     """Set up dataframe for plotly bar graph (métrics)
 
@@ -332,6 +332,17 @@ def df_set_plotly(data_frame):
             new_row={'Namespace': ns, 'Métricas': co, 'Valor': valor}
             df=df.append(new_row, ignore_index=True)
     return df
+
+def df_set_plotly_risk_points(data_frame,risk):
+    cols = data_frame.columns.values.tolist()
+    cols.remove("namespace")
+    df= pd.DataFrame()
+    for col in cols:
+        avg = data_frame[col].mean().round(2)
+        new_row={'Risco': risk, "Métricas": col, "Valor":avg}
+        df=df.append(new_row, ignore_index=True)
+    return df
+    
 
 # set up dataframe for plotly bar graph (risk)
 def df_set_plotly_rik(dataframe):
