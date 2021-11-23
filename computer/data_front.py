@@ -7,6 +7,7 @@ from computer.data_process import *
 import streamlit as st
 
 jj=1
+xx=1
 
 # Intervalo de datas
 datas=pd.read_csv("./csvs/interval_datas.csv")
