@@ -17,6 +17,7 @@ datas_list=datas["0"].tolist()
 data_inicial = datas_list[0]
 data_final = datas_list[1]
 
+bb=1
 # numero de clientes
 # total de ns 
 ns_total = total_quartil["namespace"].tolist()
